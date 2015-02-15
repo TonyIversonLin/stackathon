@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flash Cards</title>
+        <link rel="stylesheet" type="text/css" href="reset.css" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script src="angular.js"></script>
+        <script src="app.js"></script>
+    </head>
+
+    <body ng-app="FlashCards">
+
+        <div ng-controller="MainController">
+
+            <div ng-repeat="flashCard in flashCards | orderBy:'question'" ng-controller="FlashCardController" class="flash-card">
+                <h1>{{ flashCard.question | uppercase }}</h1>
+                <ul class="flash-card-answers">
+                    <li class="flash-card-answer"
+                        ng-click="answerQuestion(answer)"
+                        ng-repeat="answer in flashCard.answers">
+                        {{ answer.text }}
+                    </li>
+                </ul>
+                <h2 class="answer-feedback"
+                    ng-class="{ correct: answeredCorrectly, incorrect: !answeredCorrectly }"
+                    ng-show="answered">
+                    <span ng-show="answeredCorrectly">Yeah, you got it right!</span>
+                    <span ng-show="!answeredCorrectly">Nope, you got it wrong.</span>
+                </h2>
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
