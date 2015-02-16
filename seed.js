@@ -99,11 +99,11 @@ var cards = [
         category: 'Angular'
     },
     {
-        question: 'In Angular, $scope is an . . .',
+        question: 'In Angular, $scope is a . . .',
         answers: [
             { text: 'mysterious being', correct: false },
             { text: 'relic of transcendance', correct: false },
-            { text: 'a plain old Javascript object', correct: true }
+            { text: 'plain old Javascript object', correct: true }
         ],
         category: 'Angular'
     },
