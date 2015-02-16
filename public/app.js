@@ -1,6 +1,6 @@
-var flashCards = angular.module('FlashCards', []);
+var app = angular.module('FlashCards', []);
 
-flashCards.controller('MainController', function ($scope) {
+app.controller('MainController', function ($scope) {
 
     $scope.flashCards = [
         {
@@ -32,7 +32,7 @@ flashCards.controller('MainController', function ($scope) {
 });
 
 
-flashCards.controller('FlashCardController', function ($scope) {
+app.controller('FlashCardController', function ($scope) {
 
     $scope.answered = false;
     $scope.answeredCorrectly = null;
