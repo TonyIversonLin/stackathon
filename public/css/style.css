@@ -16,6 +16,7 @@ html, body {
     background: gainsboro; }
 
 .flash-card {
+    display: block;
   position: relative;
   width: 60%;
   height: 400px;
