@@ -2,82 +2,31 @@
 <html>
     <head>
         <title>Flash Cards</title>
-        <link rel="stylesheet" type="text/css" href="css/reset.css" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <!-- Library -->
-        <script src="js/lib/angular.js"></script>
-        <!-- Main application file -->
-        <script src="js/app.js"></script>
-        <!-- Controllers -->
-        <script src="js/controllers/FlashCardController.js"></script>
-        <script src="js/controllers/MainController.js"></script>
-        <script src="js/controllers/StatsController.js"></script>
-        <script src="js/controllers/NewCardFormCtrl.js"></script>
-        <!-- Factories -->
-        <script src="js/factories/FlashCardsFactory.js"></script>
-        <script src="js/factories/ScoreFactory.js"></script>
-        <!-- Directives -->
-        <script src="js/directives/loader/loader.js"></script>
-        <script src="js/directives/flash-card/flash-card.js"></script>
-        <script src="js/directives/border-on-hover.js"></script>
+        <!-- We've provided some styles for you, aren't we nice? -->
+        <link rel="stylesheet" type="text/css" href="reset.css" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
-
-    <body>
-
-        <div ng-app="FlashCards">
-
-            <form name="cardForm" ng-submit="cardForm.$valid && submitCard(newCard)" ng-controller="NewCardFormCtrl">
-                <pre style="text-align:left;">{{ newCard | json }}</pre>
-                Question: <input required ng-minlength="10" type="text" ng-model="newCard.question" /><br />
-                Category:
-                <select ng-model="newCard.category">
-                    <option>MongoDB</option>
-                    <option>Express</option>
-                    <option>Angular</option>
-                    <option>Node</option>
-                </select><br />
-                Answer1: <input type="text" ng-model="newCard.answers[0].text" /><input type="checkbox" ng-model="newCard.answers[0].correct" /><br />
-                Answer2: <input type="text" ng-model="newCard.answers[1].text" /><input type="checkbox" ng-model="newCard.answers[1].correct" /><br />
-                Answer3: <input type="text" ng-model="newCard.answers[2].text" /><input type="checkbox" ng-model="newCard.answers[2].correct" />
-                <button type="submit">Add Card</button>
-            </form>
-
-            <div ng-controller="StatsController" id="statistics">
-
-                <div id="scoreboard">
-                    <h3>Correct: <span>{{ scores.correct }}</span></h3>
-                    <h3>Incorrect: <span>{{ scores.incorrect }}</span></h3>
-                </div>
-
-            </div>
-
-            <div ng-controller="MainController">
-
-                <loader ng-show="loading"></loader>
-
-                <div ng-show="!loading">
-
-                    <button ng-class="{ active: !currentCategory }" ng-click="resetCategory()" class="category-button">
-                        All Categories
-                    </button>
-
-                    <button ng-class="{ active: currentCategory === category }" ng-click="getCategoryCards(category)" ng-repeat="category in categories" class="category-button">
-                        {{ category }}
-                    </button>
-
-                    <flash-card
-                            border-on-hover
-                            item="flashCard"
-                            ng-repeat="flashCard in flashCards | orderBy:'question'"
-                            class="flash-card">
-                    </flash-card>
-
-                </div>
-
-            </div>
-            
-        </div>
-
+    <body ng-app="flashCards" ng-controller="MainController">
+    	<div
+    		ng-repeat="flashCard in flashCards | orderBy : 'question'"
+    		class="flash-card">
+    	    <h1>{{ flashCard.question | uppercase }}</h1>
+    	    <ul class="flash-card-answers">
+    	    	<li
+    	    		ng-repeat="answer in flashCard.answers"
+    	    		class="flash-card-answer"
+    	    		ng-click="answerQuestion(answer, flashCard)">{{ answer.text }}</li>
+    	    </ul>
+    	    <h2
+    	    	class="answer-feedback"
+    	    	ng-class="flashCard.answeredCorrectly ? 'correct' : 'incorrect'"
+    	    	ng-show="flashCard.answered">
+    	        <span ng-show="flashCard.answeredCorrectly">Yeah, you got it right!</span>
+    	        <span ng-show="!flashCard.answeredCorrectly">Nope, you got it wrong.</span>
+    	    </h2>
+    	</div>
+    	<script src="angular.js"></script>
+    	<script src="app.js"></script>
+    	<script src="main.controller.js"></script>
     </body>
-
 </html>

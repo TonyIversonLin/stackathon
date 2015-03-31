@@ -1,1 +1,1 @@
-# flash-cards
+# Angular Flash Cards - Day 1
