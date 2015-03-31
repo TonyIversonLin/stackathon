@@ -76,3 +76,32 @@
     color: red;
   }
 }
+
+#statistics {
+
+  @include clearfix;
+  padding: 40px;
+
+  #scoreboard {
+
+    float:right;
+    margin: 0 auto;
+
+    h3 {
+
+      margin-right: 40px;
+      float: left;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      span {
+        font-weight: bold;
+      }
+
+    }
+
+  }
+
+}
