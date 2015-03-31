@@ -2,7 +2,9 @@
   "name": "workshop-scaffold",
   "version": "1.0.0",
   "dependencies": {
-    "express": "^4.11.2"
+    "bluebird": "^2.9.21",
+    "express": "^4.11.2",
+    "mongoose": "^4.0.1"
   },
   "private": true,
   "scripts": {
