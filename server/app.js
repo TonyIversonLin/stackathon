@@ -27,6 +27,11 @@ app.get('/', function (req, res) {
     res.sendFile(indexHtmlPath);
 });
 
+app.use(function (req, res, next) {
+	console.log('made it')
+	next();
+});
+
 app.get('/cards', function (req, res) {
 
     var modelParams = {};
