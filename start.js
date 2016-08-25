@@ -1,14 +1,19 @@
-var mongoose = require('mongoose');
+var chalk = require('chalk');
+var db = require('./server/db');
 
-mongoose.connect('mongodb://localhost/flash-cards');
+var app = require('./server/app');
+var server = require('http').createServer();
 
-// Grabbing our server from our server/index.js file.
-var server = require('./server');
-
-var PORT = 1337;
-
-mongoose.connection.once('open', function () {
-    server.listen(PORT, function () {
-	    console.log('Server started on port ' + PORT.toString());
-	});
-});
+db.sync()
+.then(function () {
+  server.on('request', app);
+})
+.then(function () {
+  var PORT = 1337;
+  server.listen(PORT, function () {
+    console.log(chalk.blue('Server started on port', chalk.magenta(PORT)));
+  });
+})
+.catch(function (err) {
+  console.error(chalk.red(err.stack));
+})

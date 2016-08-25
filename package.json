@@ -1,16 +1,25 @@
 {
-  "name": "workshop-scaffold",
-  "version": "1.0.0",
-  "dependencies": {
-    "bluebird": "^2.9.21",
-    "express": "^4.11.2",
-    "mongoose": "^4.0.1"
-  },
+  "name": "flashcards",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon -e js,html,css ./start.js"
+    "start": "nodemon -e js,html,css start.js",
+    "postinstall": "npm run db-init",
+    "seed": "node seed.js",
+    "db-init": "./db-init.sh",
+    "build:css": "node-sass assets/style.scss browser/css/style.css"
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bluebird": "^2.9.21",
+    "chalk": "^1.1.3",
+    "express": "^4.11.2",
+    "pg": "^6.0.3",
+    "sequelize": "^3.23.6",
+    "volleyball": "^1.3.0"
   },
   "devDependencies": {
+    "node-sass": "^3.8.0",
     "nodemon": "^1.3.7"
   }
 }
