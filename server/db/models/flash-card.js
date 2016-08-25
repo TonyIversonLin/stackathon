@@ -24,6 +24,13 @@ var FlashCard = db.define('flashcard', {
       .map((answer, i) => {
         return {text: answer, correct: i === this.getDataValue('correct')}
       })
+    },
+    // handling the transformation back into our SQL model
+    set: function (answerObjects) {
+      const correctIndex = answerObjects.findIndex(answer => answer.correct);
+      this.setDataValue('correct', correctIndex);
+      const answerStrings = answerObjects.map(answer => answer.text);
+      this.setDataValue('answers', answerStrings);
     }
   },
   correct: {
