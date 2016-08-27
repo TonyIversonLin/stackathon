@@ -7,83 +7,179 @@ var cards = [
   {
     question: 'What is another word for "asking the database for information"?',
     category: 'SQL',
-    answers: ['Query', 'Find', 'Search'],
-    correct: 0
+    answers: [{
+      text: 'Query',
+      correct: true
+    }, {
+      text:'Find'
+    }, {
+      text: 'Search'
+    }]
   }, {
     question: 'What is a schema?',
     category: 'SQL',
-    answers: ['A SQL table', 'A way to execute a query with Sequelize', 'A description of a row in SQL'],
-    correct: 2
+    answers: [{
+      text: 'A SQL table'
+    }, {
+      text: 'A way to execute a query with Sequelize'
+    }, {
+      text: 'A description of a row in SQL',
+      correct: true
+    }]
   }, {
     question: 'Which of the following is NOT a valid Sequelize schema type?',
     category: 'SQL',
-    answers: ['String', 'Row', 'Date'],
-    correct: 1
+    answers: [{
+      text: 'String'
+    }, {
+      text: 'Row',
+      correct: true
+    }, {
+      text: 'Date'
+    }]
   }, {
     question: 'A Sequelize model must be created with…',
     category: 'SQL',
-    answers: ['a schema', 'a row', 'another model'],
-    correct: 0
+    answers: [{
+      text: 'a schema',
+      correct: true
+    }, {
+      text: 'a row'
+    }, {
+      text: 'another model'
+    }]
   }, {
     question: 'Express is…',
     category: 'Express',
-    answers: ['a tool for handling HTTP requests', 'a tool for accessing a SQL database', 'a tool for generating HTML based on data'],
-    correct: 0
+    answers: [{
+      text: 'a tool for handling HTTP requests',
+      correct: true
+    }, {
+      text: 'a tool for accessing a SQL database'
+    }, {
+      text: 'a tool for generating HTML based on data'
+    }]
   }, {
     question: 'Which of these is NOT an HTTP verb?',
     category: 'Express',
-    answers: ['GET', 'POST', 'PULL'],
-    correct: 2
+    answers: [{
+      text: 'GET'
+    }, {
+      text: 'POST'
+    }, {
+      text: 'PULL',
+      correct: true
+    }]
   }, {
     question: 'What is a router?',
     category: 'Express',
-    answers: ['A component that maps a URL to a handler function', 'Middleware that attaches helpful data to a request object', 'A component that parses out important data given in the request'],
-    correct: 0
+    answers: [{
+      text: 'A component that maps a URL to a handler function',
+      correct: true
+    }, {
+      text: 'Middleware that attaches helpful data to a request object'
+    }, {
+      text: 'A component that parses out important data given in the request'
+    }]
   }, {
     question: 'You can access the query parameters of a GET request by using…',
     category: 'Express',
-    answers: ['req.body', 'req.params', 'req.query'],
-    correct: 2
+    answers: [{
+      text: 'req.body'
+    }, {
+      text: 'req.params'
+    }, {
+      text: 'req.query',
+      correct: true
+    }]
   }, {
     question: 'Angular is a front-end framework, which means it is for programs…',
     category: 'Angular',
-    answers: ['on a server', 'in a browser', 'both'],
-    correct: 1
+    answers: [{
+      text: 'on a server'
+    }, {
+      text: 'in a browser',
+      correct: true
+    }, {
+      text: 'both'
+    }]
   }, {
     question: 'The fancy word for Angular template curly braces {{ }} is…',
     category: 'Angular',
-    answers: ['transclusion', 'interpolation', 'emulation'],
-    correct: 1
+    answers: [{
+      text: 'transclusion'
+    }, {
+      text: 'interpolation',
+      correct: true
+    }, {
+      text: 'emulation'
+    }]
   }, {
     question: 'Modules in Angular can be built using…',
     category: 'Angular',
-    answers: ['factories', 'templates', 'controllers'],
-    correct: 0
+    answers: [{
+      text: 'factories',
+      correct: true
+    }, {
+      text: 'templates'
+    }, {
+      text: 'controllers'
+    }]
   }, {
     question: 'In Angular, $scope is a…',
     category: 'Angular',
-    answers: ['mysterious being', 'relic of transcendance', 'plain old Javascript object'],
-    correct: 2
+    answers: [{
+      text: 'mysterious being'
+    }, {
+      text: 'relic of transcendance'
+    }, {
+      text: 'plain old Javascript object',
+      correct: true
+    }]
   }, {
     question: 'Node is a great tool for writing Javascript to build…',
     category: 'Node',
-    answers: ['servers', 'machine processes', 'both'],
-    correct: 2
+    answers: [{
+      text: 'servers'
+    }, {
+      text: 'machine processes'
+    }, {
+      text: 'both',
+      correct: true
+    }]
   }, {
     question: '.then makes you think of…',
     category: 'Node',
-    answers: ['promises', 'callbacks', 'modules'],
-    correct: 0
+    answers: [{
+      text: 'promises',
+      correct: true
+    }, {
+      text: 'callbacks'
+    }, {
+      text: 'modules'
+    }]
   }, {
     question: "What is the name of Node's default module system?",
     category: 'Node',
-    answers: ['AMD', 'CommonJS', 'SystemJS'],
-    correct: 1
+    answers: [{
+      text: 'AMD'
+    }, {
+      text: 'CommonJS',
+      correct: true
+    }, {
+      text: 'SystemJS'
+    }]
   }, {
     question: 'What keyword is used to grab a module in Node?',
     category: 'Node',
-    answers: ['module', 'exports', 'require'],
-    correct: 2
+    answers: [{
+      text: 'module'
+    }, {
+      text: 'exports'
+    }, {
+      text: 'require',
+      correct: 2
+    }]
   }
 ];
 
