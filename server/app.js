@@ -2,6 +2,7 @@ var path = require('path');
 var express = require('express');
 var volleyball = require('volleyball');
 var db = require('./db');
+var Image = db.model('imageDb');
 //var FlashCard = db.model('flashcard');
 var bodyParser = require('body-parser');
 var multer  = require('multer');

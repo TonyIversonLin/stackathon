@@ -40,7 +40,12 @@
   <div ng-controller="submitController">
   <form>
     <div class="form-group">
-      <label for="name">Full Name</label>
+      <label for="name">Dish Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter name" ng-model="customer.dish" style="max-width:20%">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Food Ninja Name</label>
       <input type="text" class="form-control" id="name" placeholder="Enter name" ng-model="customer.name" style="max-width:20%">
     </div>
 
