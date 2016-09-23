@@ -15,6 +15,7 @@ app.controller('submitController', ['$scope', 'multipartForm', function($scope, 
 	$scope.customer = {};
 	$scope.Submit = function(){
 		var uploadUrl = '/uploadImage';
+		console.log('about to send image', $scope.customer);
 		multipartForm.post(uploadUrl, $scope.customer);
 	}
 }]);
