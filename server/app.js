@@ -3,15 +3,20 @@ var express = require('express');
 var volleyball = require('volleyball');
 var db = require('./db');
 var FlashCard = db.model('flashcard');
+var bodyParser = require('body-parser');
 
 var app = express(); // Create an express app!
 module.exports = app; // Export it so it can be require('')'d
 
 // logging middleware for HTTP requests and responses
-app.use(volleyball)
+app.use(volleyball);
+
+// Parse our POST and PUT bodies.
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
 
 // paths to static resources we will establish routes for further down
-var angularPath = path.join(__dirname, '../node_modules/angular');
+var angularPath = path.join(__dirname, '../node_modules');
 var publicPath = path.join(__dirname, '../browser');
 
 // __dirname: http://nodejs.org/docs/latest/api/globals.html#globals_dirname
@@ -43,4 +48,12 @@ app.get('/api/cards', function (req, res, next) {
     })
     .catch(next);
 
+});
+
+app.post('/cards',function(req,res,next){
+    console.log('............creating new card');
+    console.log(req.body);
+    FlashCard.create(req.body)
+      .then(flashCard => res.status(201).json(flashCard))
+        .catch(next);
 });

@@ -1,0 +1,10 @@
+        <form name="newCardForm">
+            Question<input type="text" name="questionField" ng-model="newCard.question" ng-minlength="15" required><hr><br>
+            Catergories<select name="catergories" ng-options="category as category for category in categories" ng-model="newCard.category" required></select><hr><br>
+            Answer1<input type="text" name="anwerField" ng-model="newCard.answers[0].text" ng-maxlength="10"><input type="checkbox" ng-model="newCard.answers[0].correct">
+            Answer2<input type="text" name="anwerField" ng-model="newCard.answers[1].text" ng-maxlength="10"><input type="checkbox" ng-model="newCard.answers[1].correct">
+            Answer3<input type="text" name="anwerField" ng-model="newCard.answers[2].text" ng-maxlength="10"><input type="checkbox" ng-model="newCard.answers[2].correct">
+            <hr><br>
+            <button type="submit" ng-click="submit()">sumbit flash card</button> 
+            {{ newCard }}
+        </form>

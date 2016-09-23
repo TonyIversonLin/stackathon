@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flash Cards</title>
+        <link rel="stylesheet" type="text/css" href="css/reset.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+    </head>
+    <body ng-app="flashCards">
+    
+    <div id="statistics" ng-include="'templates/statistics.html'">
+    </div>
+    <button class="category-button" ui-sref="form">Form</button>
+    <button class="category-button" ui-sref="categories">categories</button> 
+    <button class="category-button" ui-sref="flashCards">flash cards</button>
+    <hr>  
+    <ui-view></ui-view>
+<!--     <div ng-controller="MainController"> -->
+
+<!--         <div ng-controller="NewCardController">
+        <form name="newCardForm">
+            Question<input type="text" name="questionField" ng-model="newCard.question" ng-minlength="15" required><hr><br>
+            Catergories<select name="catergories" ng-options="category as category for category in categories" ng-model="newCard.category" required></select><hr><br>
+            Answer1<input type="text" name="anwerField" ng-model="newCard.answers[0].text" ng-maxlength="10"><input type="checkbox" ng-model="newCard.answers[0].correct">
+            Answer2<input type="text" name="anwerField" ng-model="newCard.answers[1].text" ng-maxlength="10"><input type="checkbox" ng-model="newCard.answers[1].correct">
+            Answer3<input type="text" name="anwerField" ng-model="newCard.answers[2].text" ng-maxlength="10"><input type="checkbox" ng-model="newCard.answers[2].correct">
+            <hr><br>
+            <button type="submit" ng-click="submit()">sumbit flash card</button> 
+            {{ newCard }}
+        </form>
+        </div> -->
+        <hr>
+<!--         <div>
+            <button class="category-button" ng-repeat="category in categories" ng-click="getCategoryCards(category)"" ng-class="{ active: currentCategory===category }">{{ category }}</button>
+        </div> -->
+       <!--  <loader ng-show="loading"></loader> -->
+
+
+<!--         <div ng-repeat="flashCard in flashCards | orderBy : 'question'" class="flash-card"> 
+            <flash-card card="flashCard"></flash-card>
+        </div> -->
+
+
+<!--         <div
+            ng-repeat="flashCard in flashCards | orderBy : 'question'"
+            class="flash-card">
+            <h1>{{ flashCard.question | uppercase }}</h1>
+            <h3>{{ flashCard.category }}</h3>
+            <ul class="flash-card-answers">
+                <li
+                    ng-repeat="answer in flashCard.answers | onlyRightAnswer"
+                    class="flash-card-answer"
+                    ng-click="answerQuestion(answer, flashCard)">{{ answer.text }}</li>
+            </ul>
+
+            <h2
+                class="answer-feedback"
+                ng-class="flashCard.answeredCorrectly ? 'correct' : 'incorrect'"
+                ng-show="flashCard.answered">
+                <span ng-show="flashCard.answeredCorrectly">Yeah, you got it right!</span>
+                <span ng-show="!flashCard.answeredCorrectly">Nope, you got it wrong.</span>
+            </h2>
+        </div> -->
+    </div>
+        <script src="angular/angular.min.js"></script>
+        <script src="angular-ui-router/release/angular-ui-router.js" defer></script>
+        <script src="js/app.js"></script>
+<!--         <script src="js/controllers/main.controller.js"></script> -->
+        <script src="js/factories/FlashCardsFactory.js" defer></script>
+        <script src="js/factories/ScoreFactory.js" defer></script>
+        <script src="js/controllers/stats.controller.js" defer></script>
+        <script src="js/controllers/categories.controller.js" defer></script>
+        <script src="js/controllers/newcard.controller.js" defer></script>
+        <script src="js/controllers/flashcards.controller.js" defer></script>        
+        <script src="js/directives/loader/loader.js" defer></script>
+        <script src="js/directives/flashcard/flashCard.js" defer></script>
+    </body>
+</html> 
