@@ -1,13 +1,11 @@
 app.factory('ImageFactory', function ($http) {
 	let ImageFactory = {};
-	ImageFactory.uploadImage = function (imagedata) {
-		console.log('about to send image')
-		return $http.post('/image', imagedata)
+	ImageFactory.getImages = function () {
+		console.log('about to get image')
+		return $http.get('/allImages')
 			.then(function(res){
-				console.log(res.data);
-			})
+				return res.data;
+			});
 	}
-
-
 	return ImageFactory;
 })

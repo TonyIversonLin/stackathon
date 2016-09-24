@@ -22,7 +22,7 @@ app.use(volleyball);
 // paths to static resources we will establish routes for further down
 var angularPath = path.join(__dirname, '../node_modules');
 var publicPath = path.join(__dirname, '../browser');
-var imagePath = path.join(__dirname, '../uploads');
+var imagePath = path.join(__dirname, '../');
 
 // __dirname: http://nodejs.org/docs/latest/api/globals.html#globals_dirname
 // path.join: http://nodejs.org/api/path.html#path_path_join_path1_path2
@@ -36,39 +36,19 @@ app.use(express.static(angularPath));
 // this route will handle all the src image request
 app.use(express.static(imagePath));
 
-// // our main JSON data route
-// app.get('/api/cards', function (req, res, next) {
 
-//     var modelParams = {};
-
-//     if (req.query.category) {
-//         modelParams.category = req.query.category;
-//     }
-
-//     FlashCard.findAll({ where: modelParams })
-//     .then(function (cards) {
-//         // deliberately throttling response to simulate slow network
-//         setTimeout(function () {
-//             res.json(cards);
-//         }, Math.random() * 700 + 300);
-//     })
-//     .catch(next);
-
-// });
-
-// app.post('/cards', function (req,res,next){
-//     console.log('............creating new card');
-//     console.log(req.body);
-//     FlashCard.create(req.body)
-//       .then(flashCard => res.status(201).json(flashCard))
-//         .catch(next);
-// });
+app.get('/allImages', function (req, res, next) {
+    Image.findAll()
+        .then(function(images){
+            res.send(images)
+        }).catch(next);
+});
 
 app.post('/uploadImage', upload.single('file'), function (req,res,next) {
     console.log(req.body);
     console.log(req.file);
     let imageObj = req.body;
-    imageObj.Url = req.file.path;
+    imageObj.url = req.file.path;
     imageObj.lat = req.body.lat;
     imageObj.long = req.body.long;
     console.log('image object about to create..........',imageObj)

@@ -19,3 +19,18 @@ app.controller('submitController', ['$scope', 'multipartForm', function($scope, 
 		multipartForm.post(uploadUrl, $scope.customer);
 	}
 }]);
+
+app.controller('imageShowController', function ($scope, ImageFactory, DirectionFactory) {
+	ImageFactory.getImages()
+		.then(function(images){
+			$scope.images = images;
+			console.log('getting image back',images)
+		}).catch(function(err){
+			console.log(err);
+		});
+	$scope.showRoute = function () {
+		console.log('trying to show route for the target food image');
+		DirectionFactory.showRoute();
+	}
+
+})

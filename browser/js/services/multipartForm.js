@@ -7,6 +7,7 @@ app.service('multipartForm', ['$http', function($http){
 		//attach the current geolocation of the image before sending
 		function imageCoord(coordinate){
 			console.log('getting image coordinate before sending',coordinate)
+			alert("Lat: " + coordinate.coords.latitude + "\nLon: " + coordinate.coords.longitude);
 			let lat = coordinate.coords.latitude;
 			let long = coordinate.coords.longitude;
 			fd.append('lat',lat);
@@ -17,7 +18,12 @@ app.service('multipartForm', ['$http', function($http){
 			headers: { 'Content-Type': undefined }
 			});
 		}
-		navigator.geolocation.getCurrentPosition(imageCoord);
+		navigator.geolocation.getCurrentPosition(imageCoord,function(error){
+         	alert(error.message);
+    		}, {
+         enableHighAccuracy: true
+              ,timeout : 5000
+    	});
 
 	}
 }])
