@@ -65,9 +65,21 @@ app.use(express.static(imagePath));
 // });
 
 app.post('/uploadImage', upload.single('file'), function (req,res,next) {
-    console.log('hit the upload image route')
     console.log(req.body);
     console.log(req.file);
-    res.json({success: true})
+    let imageObj = req.body;
+    imageObj.Url = req.file.path;
+    imageObj.lat = req.body.lat;
+    imageObj.long = req.body.long;
+    console.log('image object about to create..........',imageObj)
+    Image.create(imageObj)
+        .then(function(){
+            res.json({success: true});
+        }).catch(next)
 });
 
+app.use(function (err, req, res, next) {
+console.error(err)
+console.error(err.stack)
+res.status(err.status || 500).send(err.message || 'Internal server error.')
+})

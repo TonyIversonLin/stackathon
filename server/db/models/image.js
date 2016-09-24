@@ -7,7 +7,11 @@ var ImageDb = db.define('imageDb', {
 	category: Sequelize.STRING,
 	score: Sequelize.INTEGER,
 	comment: Sequelize.TEXT,
-	Url: Sequelize.STRING
+	wentCount: Sequelize.INTEGER,
+	goingCount: Sequelize.INTEGER,
+	url: Sequelize.STRING,
+	lat: Sequelize.STRING,
+	long: Sequelize.STRING
 });
 
 module.exports = ImageDb;
