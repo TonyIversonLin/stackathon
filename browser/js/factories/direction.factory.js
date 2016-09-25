@@ -9,7 +9,8 @@ app.factory('DirectionFactory', function () {
 		console.log('about calculating the route base on the following lat long',targetLat,targetLong);
 		let start = currentLatLong; 							   // currentLatLong is globally defined in map.js
 		console.log('start position...........',currentLatLong);
-		let end = new google.maps.LatLng(targetLat,targetLong)
+		let end = new google.maps.LatLng(targetLat,targetLong);
+		console.log('end position.............',end);
 		let request = {
 			origin: start,
 			destination: end,
