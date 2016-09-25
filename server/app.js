@@ -49,8 +49,6 @@ app.post('/uploadImage', upload.single('file'), function (req,res,next) {
     console.log(req.file);
     let imageObj = req.body;
     imageObj.url = req.file.path;
-    imageObj.lat = req.body.lat;
-    imageObj.long = req.body.long;
     console.log('image object about to create..........',imageObj)
     Image.create(imageObj)
         .then(function(){

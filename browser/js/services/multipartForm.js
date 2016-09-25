@@ -4,6 +4,20 @@ app.service('multipartForm', ['$http', function($http){
 		for(var key in data){
 			fd.append(key, data[key]);
 		}
+		if (data.lat===undefined) {
+			navigator.geolocation.getCurrentPosition(imageCoord,function(error){
+	         	alert(error.message);
+	    		}, {
+	         enableHighAccuracy: true
+	              ,timeout : 5000
+	    	});			
+		} else {
+			console.log('over write lat long developer mode')
+			$http.post(uploadUrl, fd, {
+			transformRequest: angular.indentity,
+			headers: { 'Content-Type': undefined }
+			});			
+		}
 		//attach the current geolocation of the image before sending
 		function imageCoord(coordinate){
 			console.log('getting image coordinate before sending',coordinate)
@@ -18,12 +32,5 @@ app.service('multipartForm', ['$http', function($http){
 			headers: { 'Content-Type': undefined }
 			});
 		}
-		navigator.geolocation.getCurrentPosition(imageCoord,function(error){
-         	alert(error.message);
-    		}, {
-         enableHighAccuracy: true
-              ,timeout : 5000
-    	});
-
 	}
 }])

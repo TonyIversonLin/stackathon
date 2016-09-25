@@ -28,9 +28,9 @@ app.controller('imageShowController', function ($scope, ImageFactory, DirectionF
 		}).catch(function(err){
 			console.log(err);
 		});
-	$scope.showRoute = function () {
-		console.log('trying to show route for the target food image');
-		DirectionFactory.showRoute();
+	$scope.showRoute = function (image) {
+		console.log('trying to show route for the target food image',image);
+		DirectionFactory.showRoute(image.lat,image.long);
 	}
 
 })

@@ -33,7 +33,8 @@
         width: 100%;
       }
       img {
-        width: 100%;
+        width: 30%;
+        margin: 10px;
       }
     </style>
 </head>
@@ -47,12 +48,12 @@
   <form>
     <div class="form-group">
       <label for="name">Dish Name</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter name" ng-model="customer.dish" style="max-width:200px">
+      <input type="text" class="form-control" id="dishName" placeholder="Enter name" ng-model="customer.dish" style="max-width:200px">
     </div>
 
     <div class="form-group">
-      <label for="name">Food Ninja Name</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter name" ng-model="customer.name" style="max-width:200px">
+      <label for="name">Restaurant Name</label>
+      <input type="text" class="form-control" id="personName" placeholder="Enter name" ng-model="customer.restaurant" style="max-width:200px">
     </div>
 
     <div class="form-group">
@@ -67,7 +68,7 @@
 
     <div class="form-group">
       <label for="score">Review Score</label>
-      <select ng-model="customer.score" convert-to-number style="min-width:10%;margin-left:1%">
+      <select ng-model="customer.score" convert-to-number style="min-width:40px">
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -83,6 +84,13 @@
     </div>
 
     <div class="form-group">
+      <label for="lag">lat(developer)</label>
+      <input type="text" class="form-control" ng-model="customer.lat" style="max-width:200px">
+      <label for="long">long(developer)</label>
+      <input type="text" class="form-control" ng-model="customer.long" style="max-width:200px">
+    </div>
+
+    <div class="form-group">
       <label for="exampleInputFile">Avatar</label>
       <input type="file" class="form-control-file" id="exampleInputFile" file-model="customer.file" name="avatar">
     </div>
@@ -93,7 +101,7 @@
 asdfasdfdsafa
   </div>
   <div ng-controller=imageShowController>
-    <img ng-src="{{image.url}}" ng-repeat="image in images" ng-click="showRoute()">
+    <img ng-src="{{image.url}}" ng-repeat="image in images" ng-click="showRoute(image)">
   </div>
 
 	<div id="map"></div>

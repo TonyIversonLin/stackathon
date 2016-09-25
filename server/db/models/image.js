@@ -3,7 +3,7 @@ var db = require('../_db');
 
 var ImageDb = db.define('imageDb', {
 	dish: Sequelize.STRING,
-	name: Sequelize.STRING,
+	restaurant: Sequelize.STRING,
 	category: Sequelize.STRING,
 	score: Sequelize.INTEGER,
 	comment: Sequelize.TEXT,

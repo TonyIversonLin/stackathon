@@ -6,10 +6,10 @@ app.factory('DirectionFactory', function () {
 	directionDisplay.setMap(directionsMap);
 
 	DirectionFactory.showRoute = function (targetLat,targetLong) {
-		console.log('about calculating the route');
+		console.log('about calculating the route base on the following lat long',targetLat,targetLong);
 		let start = currentLatLong; 							   // currentLatLong is globally defined in map.js
 		console.log('start position...........',currentLatLong);
-		let end = "Times Square, Manhattan, NY 10036";
+		let end = new google.maps.LatLng(targetLat,targetLong)
 		let request = {
 			origin: start,
 			destination: end,
