@@ -1,2 +1,3 @@
 
-# Fullstacker Menu - An image sharing web app
+# Fullstacker Menu
+- A food image sharing web app
