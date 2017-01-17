@@ -2,8 +2,9 @@ var chalk = require('chalk');
 var db = require('./server/db');
 var fs = require('fs');
 var app = require('./server/app');
-var pass = require('./pass.js')
 var server = require('http').createServer();
+
+//var pass = require('./pass.js')
 // var server = require('https').createServer({
 // 	key: fs.readFileSync('./server.key'),
 //     cert: fs.readFileSync('./server.crt'),
