@@ -6,3 +6,4 @@ server.key
 server.csr
 server.crt
 pass.js
+uploads
