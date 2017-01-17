@@ -5,6 +5,7 @@
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 
   <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" defer></script>
   <link href="css/style.css" rel="stylesheet" />
   <script src="/js/map.js" defer></script>
 	<script src="angular/angular.min.js"></script>
@@ -13,38 +14,27 @@
   defer></script>
 
   <script src="/js/app.js" defer></script>
+  <script src="/js/controllers/main.controller.js" defer></script>
   <script src="/js/controllers/image.controller.js" defer></script>
   <script src="/js/factories/Image.Factory.js" defer></script>
   <script src="/js/directives/fileModel.js" defer></script>
   <script src="/js/services/multipartForm.js" defer></script>
   <script src="/js/factories/direction.factory.js" defer></script>
-
-
-
-  <style>
-      html, body {
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        height: 50%;
-        width: 100%;
-      }
-      img {
-        width: 30%;
-        margin: 10px;
-      }
-    </style>
 </head>
+
 <body>
-	<!-- <a href = "#" id="get_location">Get location</a> -->
-  <button type="button" class="btn btn-primary" id="get_location">Get location</button>
-	<img id="clientImage">
 
+<div id="background-overlay" ng-controller="mainPage">
 
-  <div ng-controller="submitController">
+  <div id="landing-page">
+    <h1 style="margin:0;padding-top:10px">&ltfullstacker-menu&gt</h1>
+  </div>
+
+  <button type="button" class="btn btn-primary" id="get_location" style="float:right;margin-right:10px;">Get location</button>
+
+  <button type="button" class="btn btn-primary" ng-click="uploadPanel()" style="margin-left:10px;">Upload</button>
+
+  <div ng-controller="submitController" class="container animate-show" id="overlay" ng-show="showForm">
   <form>
     <div class="form-group">
       <label for="name">Dish Name</label>
@@ -63,6 +53,8 @@
         <option value="Mexican">Mexican</option>
         <option value="Indian">Indian</option>
         <option value="Chinese">Chinese</option>
+        <option value="Japenese">Japanese</option>
+        <option value="Korean">Korean</option>
       </select>
     </div>
 
@@ -97,15 +89,33 @@
   
     <button type="submit" class="btn btn-primary" ng-click="Submit()">Submit</button>
   </form>
-{{customer}}
-asdfasdfdsafa
+
   </div>
-  <div ng-controller=imageShowController>
-    <img ng-src="{{image.url}}" ng-repeat="image in images" ng-click="showRoute(image)">
+  <div ng-controller=imageShowController class="container">
+    <div class="row" id="foodGallery-container">
+      <div ng-repeat="image in images" id="foodGallery">
+      <a class="hovertext" href="#" title="Dish:&nbsp{{image.dish}};  Restaurant:&nbsp{{image.restaurant}}">
+        <img ng-src="{{image.url}}" ng-click="showRoute(image)">
+ <!--        <div class="info" ng-show="true">
+          <span>Dish:&nbsp{{image.dish}}</span><br>
+          <span>Restaurant:&nbsp{{image.restaurant}}</span><br>
+          <span>Score:&nbsp{{image.score}}</span>
+          <span>Comment:&nbsp{{image.comment}}</span>
+          <span>Going&nbsp{{image.wentCount}}people<button type="button" class="btn btn-primary" ng-click="increment(image)">+
+          </button>
+          </span>
+
+        </div> -->
+        </a>
+      </div>
+    </div>
   </div>
 
-	<div id="map"></div>
-
-
+<!-- <div class="container">
+  <div class="row"> -->
+	 <div id="map" class="col-xs-12"></div>
+<!--   </div>
+</div> -->
+</div>
 </body>
 </html>

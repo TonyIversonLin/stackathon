@@ -1,3 +1,8 @@
 node_modules
 .idea
 .sass-cache
+seed-image
+server.key
+server.csr
+server.crt
+pass.js

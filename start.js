@@ -3,14 +3,14 @@ var db = require('./server/db');
 var fs = require('fs');
 var app = require('./server/app');
 var pass = require('./pass.js')
-//var server = require('http').createServer();
-var server = require('https').createServer({
-	key: fs.readFileSync('./server.key'),
-    cert: fs.readFileSync('./server.crt'),
-    passphrase: pass.passphrase,
-    requestCert: false,
-    rejectUnauthorized: false
-});
+var server = require('http').createServer();
+// var server = require('https').createServer({
+// 	key: fs.readFileSync('./server.key'),
+//     cert: fs.readFileSync('./server.crt'),
+//     passphrase: pass.passphrase,
+//     requestCert: false,
+//     rejectUnauthorized: false
+// });
 
 db.sync()
 .then(function () {
