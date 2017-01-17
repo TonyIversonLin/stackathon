@@ -18,7 +18,7 @@ db.sync()
   server.on('request', app);
 })
 .then(function () {
-  var PORT = 1337;
+  var PORT = process.env.PORT || 1337;
   server.listen(PORT, function () {
     console.log(chalk.blue('Server started on port', chalk.magenta(PORT)));
   });
