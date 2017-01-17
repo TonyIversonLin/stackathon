@@ -4,9 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon -e js,html,css start.js",
-    "postinstall": "npm run db-init",
     "seed": "node seed.js",
-    "db-init": "./db-init.sh",
     "build:css": "node-sass assets/style.scss browser/css/style.css"
   },
   "dependencies": {
